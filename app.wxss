@@ -1,0 +1,25 @@
+/**app.wxss**/
+page {
+  background: #f6f7f9;
+  color: #1f2933;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+view,
+text,
+scroll-view,
+button {
+  box-sizing: border-box;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  line-height: 1;
+}
+
+button::after {
+  border: 0;
+}
