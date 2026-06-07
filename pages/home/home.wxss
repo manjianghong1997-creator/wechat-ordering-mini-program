@@ -1,0 +1,229 @@
+page {
+  height: 100vh;
+  background: #f6f7f9;
+}
+
+.page {
+  height: 100vh;
+  padding: 56rpx 24rpx 32rpx;
+}
+
+.hero {
+  padding: 40rpx 0 32rpx;
+}
+
+.shop-name {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #2f855a;
+}
+
+.title {
+  display: block;
+  margin-top: 18rpx;
+  font-size: 52rpx;
+  font-weight: 800;
+  color: #111827;
+}
+
+.subtitle {
+  display: block;
+  margin-top: 18rpx;
+  font-size: 28rpx;
+  line-height: 1.6;
+  color: #6b7280;
+}
+
+.entry-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22rpx;
+  margin-top: 24rpx;
+}
+
+.entry-card {
+  width: 100%;
+  min-height: 168rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24rpx;
+  padding: 30rpx;
+  border-radius: 8rpx;
+  text-align: left;
+}
+
+.customer-card {
+  background: #111827;
+}
+
+.admin-card {
+  background: #ffffff;
+}
+
+.stats-card {
+  background: #e8f5ee;
+}
+
+.table-card {
+  background: #fff7ed;
+}
+
+.product-card {
+  background: #eef2ff;
+}
+
+.category-card {
+  background: #f0f9ff;
+}
+
+.entry-title {
+  display: block;
+  font-size: 34rpx;
+  font-weight: 700;
+}
+
+.customer-card .entry-title,
+.customer-card .entry-arrow {
+  color: #ffffff;
+}
+
+.admin-card .entry-title,
+.stats-card .entry-title,
+.table-card .entry-title,
+.product-card .entry-title,
+.category-card .entry-title,
+.admin-card .entry-arrow {
+  color: #111827;
+}
+
+.entry-desc {
+  display: block;
+  margin-top: 14rpx;
+  font-size: 26rpx;
+  color: #9ca3af;
+}
+
+.admin-card .entry-desc {
+  color: #6b7280;
+}
+
+.stats-card .entry-desc {
+  color: #4b5563;
+}
+
+.table-card .entry-desc {
+  color: #4b5563;
+}
+
+.product-card .entry-desc {
+  color: #4b5563;
+}
+
+.category-card .entry-desc {
+  color: #4b5563;
+}
+
+.entry-arrow {
+  flex: 0 0 auto;
+  min-width: 96rpx;
+  height: 56rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 28rpx;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 26rpx;
+  font-weight: 700;
+}
+
+.admin-card .entry-arrow {
+  background: #eef1f5;
+}
+
+.stats-card .entry-arrow {
+  background: #ffffff;
+  color: #166534;
+}
+
+.table-card .entry-arrow {
+  background: #ffffff;
+  color: #9a3412;
+}
+
+.product-card .entry-arrow {
+  background: #ffffff;
+  color: #3730a3;
+}
+
+.category-card .entry-arrow {
+  background: #ffffff;
+  color: #075985;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16rpx;
+  margin-top: 28rpx;
+}
+
+.summary-item {
+  min-height: 132rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8rpx;
+  background: #ffffff;
+}
+
+.summary-number {
+  font-size: 40rpx;
+  font-weight: 800;
+  color: #111827;
+}
+
+.summary-label {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: #6b7280;
+}
+
+.cloud-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20rpx;
+  margin-top: 24rpx;
+  padding: 24rpx;
+  border-radius: 8rpx;
+  background: #ffffff;
+}
+
+.cloud-title {
+  display: block;
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #111827;
+}
+
+.cloud-desc {
+  display: block;
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: #6b7280;
+}
+
+.cloud-button {
+  min-width: 112rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30rpx;
+  background: #111827;
+  font-size: 26rpx;
+  color: #ffffff;
+}

@@ -1,0 +1,74 @@
+<scroll-view class="page" scroll-y type="list">
+  <view class="header">
+    <view>
+      <text class="title">销售统计</text>
+      <text class="subtitle">根据本地订单自动汇总</text>
+    </view>
+    <button class="home-button" bindtap="backHome">首页</button>
+  </view>
+
+  <view class="metrics">
+    <view class="metric-card revenue-card">
+      <text class="metric-label">总营业额</text>
+      <text class="metric-value">￥{{totalRevenue}}</text>
+    </view>
+    <view class="metric-card">
+      <text class="metric-label">订单数</text>
+      <text class="metric-value">{{orderCount}}</text>
+    </view>
+    <view class="metric-card">
+      <text class="metric-label">已完成</text>
+      <text class="metric-value">{{doneCount}}</text>
+    </view>
+    <view class="metric-card">
+      <text class="metric-label">待处理</text>
+      <text class="metric-value">{{pendingCount}}</text>
+    </view>
+  </view>
+
+  <view class="section">
+    <text class="section-title">订单状态</text>
+    <view class="status-list">
+      <view class="status-row">
+        <text>待处理</text>
+        <view class="bar-track">
+          <view class="bar bar-pending" style="width: {{pendingPercent}}%;"></view>
+        </view>
+        <text class="status-count">{{pendingCount}}</text>
+      </view>
+      <view class="status-row">
+        <text>制作中</text>
+        <view class="bar-track">
+          <view class="bar bar-cooking" style="width: {{cookingPercent}}%;"></view>
+        </view>
+        <text class="status-count">{{cookingCount}}</text>
+      </view>
+      <view class="status-row">
+        <text>已完成</text>
+        <view class="bar-track">
+          <view class="bar bar-done" style="width: {{donePercent}}%;"></view>
+        </view>
+        <text class="status-count">{{doneCount}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <text class="section-title">菜品销量排行</text>
+    <view wx:if="{{foodRanks.length == 0}}" class="empty">
+      <text>暂无销量数据，请先提交订单。</text>
+    </view>
+    <view wx:else class="rank-list">
+      <view wx:for="{{foodRanks}}" wx:key="name" class="rank-row">
+        <view class="rank-left">
+          <text class="rank-index">{{index + 1}}</text>
+          <text class="rank-name">{{item.name}}</text>
+        </view>
+        <view class="rank-right">
+          <text>{{item.count}} 份</text>
+          <text class="rank-amount">￥{{item.amount}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

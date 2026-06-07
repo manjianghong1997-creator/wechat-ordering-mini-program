@@ -1,0 +1,40 @@
+<view class="page">
+  <view class="header">
+    <view>
+      <text class="title">购物车</text>
+      <text class="subtitle">桌号 {{tableNo}}</text>
+    </view>
+    <button wx:if="{{cartItems.length > 0}}" class="clear-button" bindtap="clearCart">清空</button>
+  </view>
+
+  <view wx:if="{{cartItems.length == 0}}" class="empty">
+    <text class="empty-title">购物车还是空的</text>
+    <text class="empty-desc">返回菜单页，先选择想要的商品。</text>
+    <button class="back-button" bindtap="backToMenu">去点单</button>
+  </view>
+
+  <view wx:else class="cart-list">
+    <view wx:for="{{cartItems}}" wx:key="id" class="cart-item">
+      <view class="item-info">
+        <text class="item-name">{{item.name}}</text>
+        <text class="item-desc">{{item.desc}}</text>
+        <text class="item-price">￥{{item.price}}</text>
+      </view>
+
+      <view class="item-actions">
+        <button class="count-button" bindtap="decreaseCount" data-id="{{item.id}}">-</button>
+        <text class="item-count">{{item.count}}</text>
+        <button class="count-button" bindtap="increaseCount" data-id="{{item.id}}">+</button>
+        <button class="delete-button" bindtap="removeItem" data-id="{{item.id}}">删除</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{cartItems.length > 0}}" class="footer">
+  <view>
+    <text class="footer-count">共 {{cartCount}} 件</text>
+    <text class="footer-total">合计 ￥{{cartTotal}}</text>
+  </view>
+  <button class="submit-button" bindtap="submitOrder">提交订单</button>
+</view>

@@ -1,0 +1,31 @@
+<scroll-view class="page" scroll-y type="list">
+  <view class="header">
+    <view>
+      <text class="title">分类管理</text>
+      <text class="subtitle">共 {{categories.length}} 个分类，启用 {{enabledCount}} 个</text>
+    </view>
+    <button class="home-button" bindtap="backHome">首页</button>
+  </view>
+
+  <view class="add-card">
+    <input class="category-input" placeholder="输入分类名称，例如 主食" value="{{newCategoryName}}" bindinput="onCategoryInput" />
+    <button class="add-button" bindtap="addCategory">添加分类</button>
+  </view>
+
+  <view class="hint">
+    <text>停用分类后，顾客点单页不会显示这个分类；分类里的商品仍会保留，重新启用后可继续使用。</text>
+  </view>
+
+  <view class="category-list">
+    <view wx:for="{{categories}}" wx:key="id" class="category-card">
+      <view class="category-main">
+        <text class="category-name">{{item.name}}</text>
+        <text class="category-desc">{{item.products.length}} 个商品</text>
+      </view>
+      <view class="category-actions">
+        <text class="status {{item.enabled ? 'status-on' : 'status-off'}}">{{item.enabled ? '启用中' : '已停用'}}</text>
+        <button class="toggle-button" bindtap="toggleCategory" data-id="{{item.id}}">{{item.enabled ? '停用' : '启用'}}</button>
+      </view>
+    </view>
+  </view>
+</scroll-view>

@@ -1,0 +1,33 @@
+<scroll-view class="page" scroll-y type="list">
+  <view class="header">
+    <view>
+      <text class="title">桌号管理</text>
+      <text class="subtitle">共 {{tables.length}} 张桌，启用 {{enabledCount}} 张</text>
+    </view>
+    <button class="home-button" bindtap="backHome">首页</button>
+  </view>
+
+  <view class="add-card">
+    <input class="table-input" placeholder="输入桌号，例如 A07" value="{{newTableNo}}" bindinput="onTableInput" />
+    <button class="add-button" bindtap="addTable">添加桌号</button>
+  </view>
+
+  <view class="hint">
+    <text>先用“模拟扫码”验证桌号参数。后面接云开发时，我们会为每张桌生成真实二维码。</text>
+  </view>
+
+  <view class="table-list">
+    <view wx:for="{{tables}}" wx:key="id" class="table-card">
+      <view class="table-main">
+        <text class="table-no">{{item.no}}</text>
+        <text class="table-path">/pages/index/index?tableNo={{item.no}}</text>
+      </view>
+      <view class="table-actions">
+        <button class="scan-button" bindtap="mockScan" data-no="{{item.no}}" disabled="{{!item.enabled}}">模拟扫码</button>
+        <button class="toggle-button {{item.enabled ? '' : 'toggle-disabled'}}" bindtap="toggleTable" data-id="{{item.id}}">
+          {{item.enabled ? '停用' : '启用'}}
+        </button>
+      </view>
+    </view>
+  </view>
+</scroll-view>

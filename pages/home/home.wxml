@@ -1,0 +1,81 @@
+<scroll-view class="page" scroll-y type="list">
+  <view class="hero">
+    <text class="shop-name">云上小馆</text>
+    <text class="title">扫码点单系统</text>
+    <text class="subtitle">顾客扫码点单，商家后台接单处理。</text>
+  </view>
+
+  <view class="cloud-card">
+    <view>
+      <text class="cloud-title">云开发状态</text>
+      <text class="cloud-desc">{{cloudStatus}}</text>
+    </view>
+    <button class="cloud-button" bindtap="testCloud">测试</button>
+  </view>
+
+  <view class="entry-list">
+    <button class="entry-card customer-card" bindtap="goCustomer">
+      <view>
+        <text class="entry-title">顾客扫码点单</text>
+        <text class="entry-desc">浏览商品、加入购物车、提交订单</text>
+      </view>
+      <text class="entry-arrow">进入</text>
+    </button>
+
+    <button class="entry-card admin-card" bindtap="goAdmin">
+      <view>
+        <text class="entry-title">商家后台</text>
+        <text class="entry-desc">查看订单、更新制作状态</text>
+      </view>
+      <text class="entry-arrow">进入</text>
+    </button>
+
+    <button class="entry-card stats-card" bindtap="goStatistics">
+      <view>
+        <text class="entry-title">销售统计</text>
+        <text class="entry-desc">查看营业额、订单数、菜品销量</text>
+      </view>
+      <text class="entry-arrow">进入</text>
+    </button>
+
+    <button class="entry-card table-card" bindtap="goTables">
+      <view>
+        <text class="entry-title">桌号管理</text>
+        <text class="entry-desc">维护桌号，模拟扫码进入点单页</text>
+      </view>
+      <text class="entry-arrow">进入</text>
+    </button>
+
+    <button class="entry-card product-card" bindtap="goProducts">
+      <view>
+        <text class="entry-title">商品管理</text>
+        <text class="entry-desc">新增商品、上下架、同步到点单页</text>
+      </view>
+      <text class="entry-arrow">进入</text>
+    </button>
+
+    <button class="entry-card category-card" bindtap="goCategories">
+      <view>
+        <text class="entry-title">分类管理</text>
+        <text class="entry-desc">新增分类、启用停用、管理菜单结构</text>
+      </view>
+      <text class="entry-arrow">进入</text>
+    </button>
+  </view>
+
+  <view class="summary">
+    <view class="summary-item">
+      <text class="summary-number">{{orderCount}}</text>
+      <text class="summary-label">本地订单</text>
+    </view>
+    <view class="summary-item">
+      <text class="summary-number">{{pendingCount}}</text>
+      <text class="summary-label">待处理</text>
+    </view>
+    <view class="summary-item">
+      <text class="summary-number">{{doneCount}}</text>
+      <text class="summary-label">已完成</text>
+    </view>
+  </view>
+
+</scroll-view>

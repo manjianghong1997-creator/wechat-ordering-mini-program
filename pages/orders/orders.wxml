@@ -1,0 +1,64 @@
+<scroll-view class="page" scroll-y type="list">
+  <view class="header">
+    <view>
+      <text class="title">订单管理</text>
+      <text class="subtitle">当前共 {{orders.length}} 笔订单</text>
+    </view>
+    <view class="header-actions">
+      <button class="home-button" bindtap="backHome">首页</button>
+      <button class="stats-button" bindtap="goStatistics">统计</button>
+      <button wx:if="{{orders.length > 0}}" class="clear-button" bindtap="clearOrders">清空</button>
+    </view>
+  </view>
+
+  <view wx:if="{{orders.length == 0}}" class="empty">
+    <text class="empty-title">暂无订单</text>
+    <text class="empty-desc">顾客提交订单后，会出现在这里。</text>
+    <button class="back-button" bindtap="backToMenu">返回点单</button>
+  </view>
+
+  <view wx:else class="order-list">
+    <view wx:for="{{orders}}" wx:key="id" class="order-card">
+      <view class="order-top">
+        <view>
+          <text class="order-id">{{item.id}}</text>
+          <text class="order-time">{{item.createdAt}}</text>
+        </view>
+        <text class="status status-{{item.status}}">{{item.statusText}}</text>
+      </view>
+
+      <view class="summary">
+        <text>桌号 {{item.tableNo}}</text>
+        <text>{{item.totalCount}} 件 / ￥{{item.totalAmount}}</text>
+      </view>
+
+      <view class="items">
+        <view wx:for="{{item.items}}" wx:for-item="food" wx:key="id" class="food-row">
+          <text class="food-name">{{food.name}}</text>
+          <text class="food-count">x {{food.count}}</text>
+        </view>
+      </view>
+
+      <view class="actions">
+        <button
+          class="action-button"
+          wx:if="{{item.status == 'pending'}}"
+          bindtap="updateStatus"
+          data-id="{{item.id}}"
+          data-status="cooking"
+        >
+          开始制作
+        </button>
+        <button
+          class="action-button done-button"
+          wx:if="{{item.status != 'done'}}"
+          bindtap="updateStatus"
+          data-id="{{item.id}}"
+          data-status="done"
+        >
+          完成订单
+        </button>
+      </view>
+    </view>
+  </view>
+</scroll-view>

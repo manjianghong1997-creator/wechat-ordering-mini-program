@@ -1,0 +1,55 @@
+<scroll-view class="page" scroll-y type="list">
+  <view class="shop-header">
+    <view>
+      <text class="shop-name">{{shop.name}}</text>
+      <text class="shop-desc">{{shop.desc}}</text>
+    </view>
+    <button class="home-button" bindtap="backHome">首页</button>
+    <view class="table-badge">
+      <text class="table-label">桌号</text>
+      <text class="table-number">{{tableNo}}</text>
+    </view>
+  </view>
+
+  <view class="notice">
+    <text>欢迎扫码点单，选好商品后点击底部购物车提交订单。</text>
+  </view>
+
+  <view class="menu-layout">
+    <view class="category-list">
+      <view
+        wx:for="{{categories}}"
+        wx:key="id"
+        class="category-item {{activeCategoryId == item.id ? 'category-active' : ''}}"
+        bindtap="changeCategory"
+        data-id="{{item.id}}"
+      >
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+
+    <view class="product-list">
+      <view wx:for="{{currentProducts}}" wx:key="id" class="product-card">
+        <view class="product-photo {{item.colorClass}}">
+          <text>{{item.shortName}}</text>
+        </view>
+        <view class="product-info">
+          <text class="product-name">{{item.name}}</text>
+          <text class="product-desc">{{item.desc}}</text>
+          <view class="product-bottom">
+            <text class="product-price">￥{{item.price}}</text>
+            <button class="add-button" bindtap="addToCart" data-id="{{item.id}}">加入</button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+<view class="cart-bar">
+  <view>
+    <text class="cart-count">已选 {{cartCount}} 件</text>
+    <text class="cart-total">合计 ￥{{cartTotal}}</text>
+  </view>
+  <button class="submit-button {{cartCount == 0 ? 'submit-disabled' : ''}}" disabled="{{cartCount == 0}}" bindtap="goToCart">去结算</button>
+</view>

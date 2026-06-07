@@ -1,0 +1,52 @@
+<scroll-view class="page" scroll-y type="list">
+  <view class="header">
+    <view>
+      <text class="title">商品管理</text>
+      <text class="subtitle">共 {{productCount}} 个商品，上架 {{enabledCount}} 个</text>
+    </view>
+    <button class="home-button" bindtap="backHome">首页</button>
+  </view>
+
+  <view class="form-card">
+    <text class="section-title">新增商品</text>
+    <input class="input" placeholder="商品名称，例如 番茄鸡蛋面" value="{{form.name}}" data-field="name" bindinput="onInput" />
+    <input class="input" placeholder="商品简称，例如 鸡蛋面" value="{{form.shortName}}" data-field="shortName" bindinput="onInput" />
+    <input class="input" placeholder="商品描述，例如 酸甜开胃，现炒浇头" value="{{form.desc}}" data-field="desc" bindinput="onInput" />
+    <input class="input" type="number" placeholder="价格，例如 18" value="{{form.price}}" data-field="price" bindinput="onInput" />
+
+    <picker mode="selector" range="{{categoryNames}}" value="{{categoryIndex}}" bindchange="onCategoryChange">
+      <view class="picker-row">
+        <text>分类</text>
+        <text>{{categoryNames[categoryIndex]}}</text>
+      </view>
+    </picker>
+
+    <button class="save-button" bindtap="addProduct">保存商品</button>
+  </view>
+
+  <view class="category-tabs">
+    <view
+      wx:for="{{categories}}"
+      wx:key="id"
+      class="category-tab {{activeCategoryId == item.id ? 'category-active' : ''}}"
+      data-id="{{item.id}}"
+      bindtap="changeCategory"
+    >
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+
+  <view class="product-list">
+    <view wx:for="{{currentProducts}}" wx:key="id" class="product-item">
+      <view class="product-main">
+        <text class="product-name">{{item.name}}</text>
+        <text class="product-desc">{{item.desc}}</text>
+        <text class="product-price">￥{{item.price}}</text>
+      </view>
+      <view class="product-actions">
+        <text class="status {{item.enabled ? 'status-on' : 'status-off'}}">{{item.enabled ? '上架中' : '已下架'}}</text>
+        <button class="toggle-button" data-id="{{item.id}}" bindtap="toggleProduct">{{item.enabled ? '下架' : '上架'}}</button>
+      </view>
+    </view>
+  </view>
+</scroll-view>
